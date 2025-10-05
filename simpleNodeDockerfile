@@ -1,0 +1,7 @@
+FROM debian:bullseye-slim
+RUN apt update && apt upgrade -y
+RUN apt install g++ -y
+COPY node-executables/main.cpp / 
+WORKDIR /
+RUN g++ main.cpp -o simpleNode
+CMD ["./simpleNode"]
