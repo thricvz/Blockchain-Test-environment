@@ -12,7 +12,7 @@ The user is free to add new machines to this virtualized network by editing the 
 ## Launching the Test Environment
 
 First, modify the permissions of the ``prepare-env.sh`` with the ``chmod +x prepare-env.sh`` command.
-Second, execute the script with privileged rights: ``sudo prepare-env.sh``
+Second, execute the script with privileged rights: ``sudo ./prepare-env.sh``
 
 These steps allow us to successfully build our custom docker images,that are required in our docker-compose config file
 
