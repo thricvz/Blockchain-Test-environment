@@ -1,7 +1,8 @@
 ### TEST ENVIRONMENT FOR BLOCKCHAIN PROJECT
 
 The following repository is auxiliary to my blockchain implementation project as it contains a simple test network implemented with the help of docker containers.
-The user is free to add new machines to this virtualized network by editing the ``docker-compose.yaml`` file.Please note that for the new node to be taken in account it must have either of these two custom docker images:
+The user is free to add new machines to this virtualized network by editing the ``docker-compose.yaml`` file.
+**Please note that for the new node to be taken in account it must have either of these two custom docker images:**
 - reliable-node (meant only for nodes that are always active on the network)
 - simple-node 
 
