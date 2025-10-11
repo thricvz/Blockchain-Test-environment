@@ -1,7 +1,15 @@
 FROM debian:bullseye-slim
+
+#Install software dependencies
+
 RUN apt update && apt upgrade -y
 RUN apt install g++ -y
+RUN apt install net-tools -y
+
+#Compile and run client specific code
+
 COPY node-executables/main.cpp / 
 WORKDIR /
 RUN g++ main.cpp -o reliableNode
 CMD ["./reliableNode"]
+

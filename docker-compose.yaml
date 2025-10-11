@@ -1,8 +1,29 @@
 services:
   machine1:
     image: reliable-node
-  
+    networks:
+       crypto-network:
+          ipv4_address: 122.0.0.3
+
   machine2:
     image: simple-node
     depends_on:
        - "machine1"
+    networks:
+       crypto-network:
+          ipv4_address: 122.0.0.4
+
+  machine3:
+    image: simple-node
+    depends_on:
+       - "machine1"
+    networks:
+       crypto-network:
+          ipv4_address: 122.0.0.5
+
+networks:
+  crypto-network:
+      ipam:
+        driver: default 
+        config: 
+          - subnet: "122.0.0.0/24"

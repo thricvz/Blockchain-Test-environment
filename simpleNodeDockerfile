@@ -1,6 +1,13 @@
 FROM debian:bullseye-slim
+
+#installing dependencies
+
 RUN apt update && apt upgrade -y
 RUN apt install g++ -y
+RUN apt install net-tools -y
+
+#compiling the Client-specific code
+
 COPY node-executables/main.cpp / 
 WORKDIR /
 RUN g++ main.cpp -o simpleNode
