@@ -1,15 +1,18 @@
-FROM debian:bullseye-slim
+FROM ubuntu:jammy
 
 #Install software dependencies
 
 RUN apt update && apt upgrade -y
 RUN apt install g++ -y
 RUN apt install net-tools -y
+RUN apt install cmake -y 
+RUN apt install git -y
+RUN apt install gdb -y
 
-#Compile and run client specific code
-
-COPY node-executables/main.cpp / 
 WORKDIR /
-RUN g++ main.cpp -o reliableNode
-CMD ["./reliableNode"]
-
+RUN git clone -b P2P https://github.com/thricvz/Blockchain-From-Scratch.git src/
+RUN mkdir build 
+RUN cmake -DCMAKE_BUILD_TYPE=DEBUG src
+RUN cmake -S src -B build
+RUN cmake --build build
+CMD ["./build/test/listen"]
