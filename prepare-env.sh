@@ -1,2 +1,1 @@
-docker build -f simpleNodeDockerfile -t simple-node .
-docker build -f reliableNodeDockerfile -t reliable-node . 
+docker build --no-cache -f DebugImage -t debug_image .

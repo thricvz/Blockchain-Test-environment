@@ -1,12 +1,18 @@
 services:
   machine1:
-    image: simple-node
+    image: debug_image 
+    entrypoint : gdb ./build/test/connect
+    tty: true
+    stdin_open: true
     networks:
        crypto-network:
           ipv4_address: 122.0.0.3
 
   machine2:
-    image: reliable-node
+    image: debug_image
+    entrypoint : gdb ./build/test/listen
+    tty: true
+    stdin_open: true
     networks:
        crypto-network:
           ipv4_address: 122.0.0.4

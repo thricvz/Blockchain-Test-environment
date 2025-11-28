@@ -1,16 +1,13 @@
 FROM ubuntu:jammy
 
-#Install software dependencies
+# Install software dependencies
 
 RUN apt update && apt upgrade -y
-RUN apt install g++ -y
-RUN apt install net-tools -y
-RUN apt install cmake -y
-RUN apt install git -y
+RUN apt install g++ net-tools cmake git gdb -y
 
 WORKDIR /
-RUN mkdir build 
 RUN git clone -b P2P https://github.com/thricvz/Blockchain-From-Scratch.git src/
+
+RUN mkdir build 
 RUN cmake -S src -B build
 RUN cmake --build build
-CMD ["./build/test/connect"]
